@@ -40,7 +40,7 @@ elif (response == "4"):
         lineStripped.remove(removeVehicle)
         with open("data/vehicles.txt", "w") as file:
            file.writelines('\n'.join(lineStripped))
-        print("You have removed " + removeVehicle + " from the list of authorized vehicles.")
+        print("You have removed " + removeVehicle + " as an authorized vehicle.")
   
 # Exit if statement
 elif (response == "5"):
