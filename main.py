@@ -30,16 +30,17 @@ elif (response == "3"):
 
 #Delete 
 elif (response == "4"):
-  removeVehicle = input("Please enter the full vehicle name you would like to REMOVE: \n")
+  removeVehicle = input("Please enter the full vehicle name you would like to REMOVE:\n")
   with open("data/vehicles.txt", "r") as file:
     lines = file.readlines()
-    if removeVehicle in lines:
-      confirmation = input("Are you sure you want to remove " + removeVehicle + " from the Authorized Vehicles list?\n")
+    lineStripped =[line.rstrip("\n") for line in lines]
+    if removeVehicle in lineStripped:
+      confirmation = input("Are you sure you want to remove " + removeVehicle + " from the Authorized Vehicle list?\n")
       if (confirmation == "yes"):
-        lines.remove(removeVehicle)
+        lineStripped.remove(removeVehicle)
         with open("data/vehicles.txt", "w") as file:
-           file.writelines(lines)
-        print("You have removed " + removeVehicle + " from the list of authorized vehicles.")
+           file.writelines('\n'.join(lineStripped))
+        print(f"You have removed " + removeVehicle + " from the list of authorized vehicles.")
   
 # Exit if statement
 elif (response == "5"):
